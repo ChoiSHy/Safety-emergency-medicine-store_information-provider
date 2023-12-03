@@ -1,6 +1,7 @@
 const express = require('express');
 const dao = require('../services/dao')
 const router = express.Router();
+const os = require('os')
 
 router.get('/search', async (req, res, next)=> {
     try{
@@ -30,8 +31,10 @@ router.get('/search/rest', async (req, res, next)=>{
         next(err)
     }
 })
-
-router.get('/', (req,res,next)=>{
+router.get('/', (req,res)=>{
+    res.json(os.networkInterfaces())
+})
+router.get('/index', (req,res,next)=>{
     res.render("index");
 })
 
