@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=obj.local%> 상비약 판매업소 현황</title>
+</head>
+<body>
+    <div align = "center">
+        <table border="1">
+            <tr>
+                <th>업소명</th>
+                <th>도로명 주소</th>
+                <th>전화 번호</th>
+            </tr>
+            <% obj.rows.forEach(row => { %>
+            <tr>
+                <td><%=row.name%></td>
+                <td><%=row.street_addr%></td>
+                <td><%=row.phone%></td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+    
+</body>
+</html>
