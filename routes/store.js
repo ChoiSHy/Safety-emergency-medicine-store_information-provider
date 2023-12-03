@@ -17,6 +17,19 @@ router.get('/search', async (req, res, next)=> {
         next(err)
     }
 });
+router.get('/search/rest', async (req, res, next)=>{
+    try{
+        console.log('rest api run')
+        let {local} = req.query;
+
+        console.log(`local = ${local}`)
+        rows = await dao.getStoreIn(local);
+        res.json(rows)
+    }catch(err){
+        console.error('Error while getting datas...', err.message);
+        next(err)
+    }
+})
 
 router.get('/', (req,res,next)=>{
     res.render("index");
